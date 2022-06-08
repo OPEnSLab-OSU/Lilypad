@@ -1,0 +1,37 @@
+"{\
+  'general':\
+  {\
+    'name':'Device',\
+    'instance':1\
+  },\
+  'components':[\
+    {\
+      'name':'ADS1115',\
+      'params':'default'\
+    },\
+    {\
+      'name':'SHT31D',\
+      'params':'default'\
+    },\
+    {\
+      'name':'MAX31865',\
+      'params':['MAX31865',1,9]\
+    },\
+    {\
+      'name':'SD',\
+      'params': [true,1000,10,'data',true]\
+    },\
+    {\
+      'name':'DS3231',\
+      'params':[10,true,true]\
+    },\
+    {\
+      'name':'InterruptManager',\
+      'params':'default'\
+    },\
+    {\
+      'name':'SleepManager',\
+      'params':[true,false,1]\
+    }\
+  ]\
+}"

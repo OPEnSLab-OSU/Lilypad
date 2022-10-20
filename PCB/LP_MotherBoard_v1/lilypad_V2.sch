@@ -11329,6 +11329,8 @@ www.isabellenhuette.de&lt;p&gt;
 <part name="GND1" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="RED" library="adafruit" library_urn="urn:adsk.eagle:library:420" deviceset="LED" device="SMT1206" package3d_urn="urn:adsk.eagle:package:6240349/1"/>
 <part name="GREEN" library="adafruit" library_urn="urn:adsk.eagle:library:420" deviceset="LED" device="SMT1206" package3d_urn="urn:adsk.eagle:package:6240349/1"/>
+<part name="J2" library="SparkFun-Connectors" deviceset="M04" device="PTH"/>
+<part name="JP1" library="adafruit" library_urn="urn:adsk.eagle:library:420" deviceset="PINHD-1X3" device="" package3d_urn="urn:adsk.eagle:package:6240710/1"/>
 </parts>
 <sheets>
 <sheet>
@@ -11338,6 +11340,7 @@ www.isabellenhuette.de&lt;p&gt;
 <text x="210.82" y="71.12" size="1.778" layer="97" grouprefs="SOLAR_CHARGER">Battery input</text>
 <text x="83.82" y="53.34" size="1.778" layer="91" grouprefs="INA169_MULTIMETER">Solar Hookup</text>
 <text x="205.74" y="139.7" size="1.778" layer="97" grouprefs="SENSOR_CONNECTORS">I2C</text>
+<text x="228.6" y="139.7" size="1.778" layer="97" grouprefs="SENSOR_CONNECTORS">I2C</text>
 </plain>
 <instances>
 <instance part="BATT" gate="G$1" x="231.14" y="60.96" smashed="yes" rot="MR180" grouprefs="SOLAR_CHARGER">
@@ -11494,6 +11497,14 @@ www.isabellenhuette.de&lt;p&gt;
 <attribute name="NAME" x="129.032" y="39.116" size="1.778" layer="95" rot="R180"/>
 <attribute name="VALUE" x="129.032" y="41.275" size="1.778" layer="96" rot="R180"/>
 </instance>
+<instance part="J2" gate="G$1" x="215.9" y="132.08" smashed="yes" grouprefs="SENSOR_CONNECTORS">
+<attribute name="VALUE" x="210.82" y="124.46" size="1.778" layer="96"/>
+<attribute name="NAME" x="210.82" y="140.462" size="1.778" layer="95"/>
+</instance>
+<instance part="JP1" gate="A" x="200.66" y="73.66" smashed="yes">
+<attribute name="NAME" x="194.31" y="79.375" size="1.778" layer="95"/>
+<attribute name="VALUE" x="194.31" y="66.04" size="1.778" layer="96"/>
+</instance>
 </instances>
 <busses>
 </busses>
@@ -11606,6 +11617,11 @@ www.isabellenhuette.de&lt;p&gt;
 <wire x1="152.4" y1="43.18" x2="149.86" y2="43.18" width="0.1524" layer="91" grouprefs="SOLAR_CHARGER"/>
 <pinref part="GND1" gate="1" pin="GND"/>
 </segment>
+<segment>
+<pinref part="J2" gate="G$1" pin="2"/>
+<wire x1="220.98" y1="132.08" x2="228.6" y2="132.08" width="0.1524" layer="91" grouprefs="SENSOR_CONNECTORS"/>
+<label x="223.52" y="132.08" size="1.778" layer="95" grouprefs="SENSOR_CONNECTORS"/>
+</segment>
 </net>
 <net name="THERM" class="0">
 <segment>
@@ -11699,6 +11715,11 @@ www.isabellenhuette.de&lt;p&gt;
 <wire x1="198.12" y1="134.62" x2="205.74" y2="134.62" width="0.1524" layer="91" grouprefs="SENSOR_CONNECTORS"/>
 <label x="200.66" y="134.62" size="1.778" layer="95" grouprefs="SENSOR_CONNECTORS"/>
 </segment>
+<segment>
+<pinref part="J2" gate="G$1" pin="3"/>
+<wire x1="220.98" y1="134.62" x2="228.6" y2="134.62" width="0.1524" layer="91" grouprefs="SENSOR_CONNECTORS"/>
+<label x="223.52" y="134.62" size="1.778" layer="95" grouprefs="SENSOR_CONNECTORS"/>
+</segment>
 </net>
 <net name="SDA" class="0">
 <segment>
@@ -11710,6 +11731,11 @@ www.isabellenhuette.de&lt;p&gt;
 <pinref part="J1" gate="G$1" pin="4"/>
 <wire x1="198.12" y1="137.16" x2="205.74" y2="137.16" width="0.1524" layer="91" grouprefs="SENSOR_CONNECTORS"/>
 <label x="200.66" y="137.16" size="1.778" layer="95" grouprefs="SENSOR_CONNECTORS"/>
+</segment>
+<segment>
+<pinref part="J2" gate="G$1" pin="4"/>
+<wire x1="220.98" y1="137.16" x2="228.6" y2="137.16" width="0.1524" layer="91" grouprefs="SENSOR_CONNECTORS"/>
+<label x="223.52" y="137.16" size="1.778" layer="95" grouprefs="SENSOR_CONNECTORS"/>
 </segment>
 </net>
 <net name="VCC" class="0">
@@ -11753,6 +11779,11 @@ www.isabellenhuette.de&lt;p&gt;
 <wire x1="22.86" y1="60.96" x2="15.24" y2="60.96" width="0.1524" layer="91" grouprefs="INA169_MULTIMETER"/>
 <junction x="15.24" y="60.96" grouprefs="INA169_MULTIMETER"/>
 </segment>
+<segment>
+<pinref part="J2" gate="G$1" pin="1"/>
+<wire x1="220.98" y1="129.54" x2="228.6" y2="129.54" width="0.1524" layer="91" grouprefs="SENSOR_CONNECTORS"/>
+<label x="223.52" y="129.54" size="1.778" layer="95" grouprefs="SENSOR_CONNECTORS"/>
+</segment>
 </net>
 <net name="EN" class="0">
 <segment>
@@ -11770,14 +11801,11 @@ www.isabellenhuette.de&lt;p&gt;
 </net>
 <net name="VBAT" class="0">
 <segment>
-<pinref part="HP2" gate="G$1" pin="1"/>
-<wire x1="165.1" y1="134.62" x2="154.94" y2="134.62" width="0.1524" layer="91" grouprefs="HYPNOS1"/>
-<label x="154.94" y="134.62" size="1.27" layer="95" rot="R180" xref="yes" grouprefs="HYPNOS1"/>
-</segment>
-<segment>
 <pinref part="X4" gate="G$1" pin="OUT"/>
-<wire x1="190.5" y1="66.04" x2="195.58" y2="66.04" width="0.1524" layer="91" grouprefs="SOLAR_CHARGER"/>
+<wire x1="190.5" y1="66.04" x2="198.12" y2="66.04" width="0.1524" layer="91" grouprefs="SOLAR_CHARGER"/>
 <label x="190.5" y="63.5" size="1.778" layer="95" grouprefs="SOLAR_CHARGER"/>
+<pinref part="JP1" gate="A" pin="3"/>
+<wire x1="198.12" y1="66.04" x2="198.12" y2="71.12" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="X4" gate="G$1" pin="EN2"/>
@@ -12016,6 +12044,18 @@ www.isabellenhuette.de&lt;p&gt;
 <segment>
 <pinref part="R11" gate="G$1" pin="2"/>
 <pinref part="GREEN" gate="G$1" pin="C"/>
+</segment>
+</net>
+<net name="VIN" class="0">
+<segment>
+<pinref part="JP1" gate="A" pin="2"/>
+<wire x1="198.12" y1="73.66" x2="193.04" y2="73.66" width="0.1524" layer="91"/>
+<label x="190.5" y="73.66" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="HP2" gate="G$1" pin="1"/>
+<wire x1="165.1" y1="134.62" x2="154.94" y2="134.62" width="0.1524" layer="91" grouprefs="HYPNOS1"/>
+<label x="154.94" y="134.62" size="1.27" layer="95" rot="R180" xref="yes" grouprefs="HYPNOS1"/>
 </segment>
 </net>
 </nets>

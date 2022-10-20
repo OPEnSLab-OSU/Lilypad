@@ -190,41 +190,6 @@
 <libraries>
 <library name="microbuilder">
 <packages>
-<package name="1X01_OVAL">
-<description>&lt;b&gt;PIN HEADER&lt;/b&gt;</description>
-<pad name="1" x="0" y="0" drill="1" diameter="1.6764" shape="long" rot="R90"/>
-<text x="-1.3462" y="1.8288" size="0.8128" layer="25" ratio="18">&gt;NAME</text>
-<text x="-1.27" y="-3.175" size="0.4064" layer="27" ratio="10">&gt;VALUE</text>
-<rectangle x1="-0.254" y1="-0.254" x2="0.254" y2="0.254" layer="51"/>
-</package>
-<package name="1X01_ROUND">
-<pad name="1" x="0" y="0" drill="1" diameter="1.6764" rot="R90"/>
-<text x="-1.3462" y="1.8288" size="0.8128" layer="25" ratio="18">&gt;NAME</text>
-<text x="-1.27" y="-3.175" size="0.4064" layer="27" ratio="10">&gt;VALUE</text>
-<rectangle x1="-0.254" y1="-0.254" x2="0.254" y2="0.254" layer="51"/>
-</package>
-<package name="1X01_2MM">
-<pad name="1" x="0" y="0" drill="0.8" diameter="1.27" rot="R90"/>
-<text x="-1.3462" y="1.8288" size="0.8128" layer="25" ratio="18">&gt;NAME</text>
-<text x="-1.27" y="-3.175" size="0.4064" layer="27" ratio="10">&gt;VALUE</text>
-<rectangle x1="-0.254" y1="-0.254" x2="0.254" y2="0.254" layer="51"/>
-</package>
-<package name="1X01_2MM_OVAL">
-<pad name="1" x="0" y="0" drill="0.8" diameter="1.27" shape="long" rot="R90"/>
-<text x="-1.3462" y="1.8288" size="0.8128" layer="25" ratio="18">&gt;NAME</text>
-<text x="-1.27" y="-3.175" size="0.4064" layer="27" ratio="10">&gt;VALUE</text>
-<rectangle x1="-0.254" y1="-0.254" x2="0.254" y2="0.254" layer="51"/>
-</package>
-<package name="1X01_SMD_MASKHELD_2X2MM">
-<smd name="1" x="0" y="0" dx="2.4" dy="2.4" layer="1" cream="no"/>
-</package>
-<package name="1X01_SMD_MASKHELD_1X2MM">
-<smd name="P$1" x="0" y="0" dx="1.4" dy="2.4" layer="1" stop="no" cream="no"/>
-<rectangle x1="-0.5" y1="-1" x2="0.5" y2="1" layer="29"/>
-</package>
-<package name="POGO_4.5MM">
-<pad name="P$1" x="0" y="0" drill="4.5" diameter="8" shape="octagon"/>
-</package>
 <package name="SMADIODE">
 <description>&lt;b&gt;SMA Surface Mount Diode&lt;/b&gt;</description>
 <wire x1="-1.8452" y1="1.3" x2="1.8198" y2="1.3" width="0.2032" layer="51"/>
@@ -416,15 +381,6 @@
 </package>
 </packages>
 <symbols>
-<symbol name="PINHD1">
-<wire x1="-6.35" y1="-2.54" x2="1.27" y2="-2.54" width="0.4064" layer="94"/>
-<wire x1="1.27" y1="-2.54" x2="1.27" y2="2.54" width="0.4064" layer="94"/>
-<wire x1="1.27" y1="2.54" x2="-6.35" y2="2.54" width="0.4064" layer="94"/>
-<wire x1="-6.35" y1="2.54" x2="-6.35" y2="-2.54" width="0.4064" layer="94"/>
-<text x="-6.35" y="3.175" size="1.778" layer="95">&gt;NAME</text>
-<text x="-6.35" y="-5.08" size="1.778" layer="96">&gt;VALUE</text>
-<pin name="1" x="-2.54" y="0" visible="pad" length="short" direction="pas" function="dot"/>
-</symbol>
 <symbol name="DIODE-SCHOTTKY">
 <wire x1="-1.27" y1="1.27" x2="-1.27" y2="-1.27" width="0.254" layer="94"/>
 <wire x1="-1.27" y1="-1.27" x2="1.27" y2="0" width="0.254" layer="94"/>
@@ -478,70 +434,6 @@
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="HEADER-1X1" prefix="JP" uservalue="yes">
-<description>&lt;b&gt;PIN HEADER&lt;/b&gt;</description>
-<gates>
-<gate name="G$1" symbol="PINHD1" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="1X01_OVAL">
-<connects>
-<connect gate="G$1" pin="1" pad="1"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-<device name="ROUND" package="1X01_ROUND">
-<connects>
-<connect gate="G$1" pin="1" pad="1"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-<device name="2MM" package="1X01_2MM">
-<connects>
-<connect gate="G$1" pin="1" pad="1"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-<device name="2MM_OVAL" package="1X01_2MM_OVAL">
-<connects>
-<connect gate="G$1" pin="1" pad="1"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-<device name="-SMD_MASKHELD_2X2MM" package="1X01_SMD_MASKHELD_2X2MM">
-<connects>
-<connect gate="G$1" pin="1" pad="1"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-<device name="-SMD-MASKHELD_1X2MM" package="1X01_SMD_MASKHELD_1X2MM">
-<connects>
-<connect gate="G$1" pin="1" pad="P$1"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-<device name="_POGO_4.5MM" package="POGO_4.5MM">
-<connects>
-<connect gate="G$1" pin="1" pad="P$1"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
 <deviceset name="DIODE-SCHOTTKY" prefix="D" uservalue="yes">
 <gates>
 <gate name="G$1" symbol="DIODE-SCHOTTKY" x="0" y="0"/>
@@ -807,32 +699,6 @@ external load resistor that sets any gain from 1 to over 100.&lt;/p&gt;</descrip
 <connect gate="G$1" pin="TS" pad="1"/>
 <connect gate="G$1" pin="VSS" pad="8 THERMAL"/>
 </connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
-<library name="supply1">
-<packages>
-</packages>
-<symbols>
-<symbol name="GND">
-<wire x1="-1.905" y1="0" x2="1.905" y2="0" width="0.254" layer="94"/>
-<text x="-2.54" y="-2.54" size="1.778" layer="96">&gt;VALUE</text>
-<pin name="GND" x="0" y="2.54" visible="off" length="short" direction="sup" rot="R270"/>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="GND" prefix="GND">
-<description>&lt;b&gt;SUPPLY SYMBOL&lt;/b&gt;</description>
-<gates>
-<gate name="1" symbol="GND" x="0" y="0"/>
-</gates>
-<devices>
-<device name="">
 <technologies>
 <technology name=""/>
 </technologies>
@@ -11418,9 +11284,6 @@ www.isabellenhuette.de&lt;p&gt;
 <schematic_group name="SOLAR_CHARGER"/>
 </groups>
 <parts>
-<part name="GND16" library="supply1" deviceset="GND" device=""/>
-<part name="-" library="microbuilder" deviceset="HEADER-1X1" device=""/>
-<part name="+" library="microbuilder" deviceset="HEADER-1X1" device=""/>
 <part name="BATT" library="adafruit" deviceset="JST_2PIN" device="-SMT-RA" value="JST 2PH"/>
 <part name="GND6" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="R7" library="adafruit" library_urn="urn:adsk.eagle:library:420" deviceset="R-US_" device="M0805" package3d_urn="urn:adsk.eagle:package:6240587/1" value="10K"/>
@@ -11471,24 +11334,12 @@ www.isabellenhuette.de&lt;p&gt;
 <sheet>
 <plain>
 <text x="187.96" y="121.92" size="1.778" layer="97" grouprefs="SENSOR_CONNECTORS">DS18B20</text>
-<text x="142.24" y="81.28" size="1.778" layer="97" grouprefs="SOLAR_CHARGER">Trickle Cap</text>
 <text x="198.12" y="33.02" size="1.778" layer="97" grouprefs="SOLAR_CHARGER">Batt tmp probe</text>
 <text x="210.82" y="71.12" size="1.778" layer="97" grouprefs="SOLAR_CHARGER">Battery input</text>
 <text x="83.82" y="53.34" size="1.778" layer="91" grouprefs="INA169_MULTIMETER">Solar Hookup</text>
 <text x="205.74" y="139.7" size="1.778" layer="97" grouprefs="SENSOR_CONNECTORS">I2C</text>
 </plain>
 <instances>
-<instance part="GND16" gate="1" x="137.16" y="76.2" smashed="yes" rot="R270" grouprefs="SOLAR_CHARGER">
-<attribute name="VALUE" x="134.62" y="78.74" size="1.778" layer="96" rot="R270"/>
-</instance>
-<instance part="-" gate="G$1" x="147.32" y="76.2" smashed="yes" grouprefs="SOLAR_CHARGER">
-<attribute name="NAME" x="140.97" y="79.375" size="1.778" layer="95"/>
-<attribute name="VALUE" x="140.97" y="71.12" size="1.778" layer="96"/>
-</instance>
-<instance part="+" gate="G$1" x="157.48" y="76.2" smashed="yes" grouprefs="SOLAR_CHARGER">
-<attribute name="NAME" x="151.13" y="79.375" size="1.778" layer="95"/>
-<attribute name="VALUE" x="151.13" y="71.12" size="1.778" layer="96"/>
-</instance>
 <instance part="BATT" gate="G$1" x="231.14" y="60.96" smashed="yes" rot="MR180" grouprefs="SOLAR_CHARGER">
 <attribute name="NAME" x="224.79" y="55.245" size="1.778" layer="95" rot="MR180"/>
 <attribute name="VALUE" x="224.79" y="66.04" size="1.778" layer="96" rot="MR180"/>
@@ -11648,11 +11499,6 @@ www.isabellenhuette.de&lt;p&gt;
 </busses>
 <nets>
 <net name="GND" class="0">
-<segment>
-<pinref part="GND16" gate="1" pin="GND"/>
-<pinref part="-" gate="G$1" pin="1"/>
-<wire x1="144.78" y1="76.2" x2="139.7" y2="76.2" width="0.1524" layer="91" grouprefs="SOLAR_CHARGER"/>
-</segment>
 <segment>
 <wire x1="220.98" y1="58.42" x2="228.6" y2="58.42" width="0.1524" layer="91" grouprefs="SOLAR_CHARGER"/>
 <pinref part="BATT" gate="G$1" pin="1"/>
@@ -12157,11 +12003,7 @@ www.isabellenhuette.de&lt;p&gt;
 <segment>
 <pinref part="X4" gate="G$1" pin="IN"/>
 <pinref part="D2" gate="G$1" pin="C"/>
-<wire x1="160.02" y1="66.04" x2="154.94" y2="66.04" width="0.1524" layer="91" grouprefs="SOLAR_CHARGER"/>
-<pinref part="+" gate="G$1" pin="1"/>
-<wire x1="154.94" y1="66.04" x2="152.4" y2="66.04" width="0.1524" layer="91" grouprefs="SOLAR_CHARGER"/>
-<wire x1="154.94" y1="76.2" x2="154.94" y2="66.04" width="0.1524" layer="91" grouprefs="SOLAR_CHARGER"/>
-<junction x="154.94" y="66.04" grouprefs="SOLAR_CHARGER"/>
+<wire x1="160.02" y1="66.04" x2="152.4" y2="66.04" width="0.1524" layer="91" grouprefs="SOLAR_CHARGER"/>
 </segment>
 </net>
 <net name="N$3" class="0">

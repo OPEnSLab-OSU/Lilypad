@@ -1,20 +1,15 @@
 /**
- * In lab use case example for the WeatherChimes project
+ *
+ * This project uses the VEML7700, DS18B20, and SHT31 sensor to log environment data and logs it to both the SD card and also MQTT/MongoDB
  * 
- * This project uses SDI12, TSL2591 and an SHT31 sensor to log environment data and logs it to both the SD card and also MQTT/MongoDB
- * 
- * MANAGER MUST BE INCLUDED FIRST IN ALL CODE
  */
 #include "arduino_secrets.h"
 
 #include <Loom_Manager.h>
-
 #include <Hardware/Loom_Hypnos/Loom_Hypnos.h>
 
 #include <Sensors/Loom_Analog/Loom_Analog.h>
 #include <Sensors/I2C/Loom_SHT31/Loom_SHT31.h>
-#include <Sensors/I2C/Loom_TSL2591/Loom_TSL2591.h>
-#include <Sensors/SPI/Loom_MAX318XX/Loom_MAX31865.h>
 
 #include <Internet/Logging/Loom_MQTT/Loom_MQTT.h>
 #include <Internet/Connectivity/Loom_LTE/Loom_LTE.h>
@@ -29,8 +24,6 @@ Loom_Analog analog(manager);
 
 // Create sensor classes
 Loom_SHT31 sht(manager);
-Loom_TSL2591 tsl(manager);
-Loom_MAX31865 max65(manager);
 
 Loom_LTE lte(manager, NETWORK_APN, NETWORK_USER, NETWORK_PASS);
 Loom_MQTT mqtt(manager, lte.getClient(), SECRET_BROKER, SECRET_PORT, DATABASE, BROKER_USER, BROKER_PASS);
@@ -69,7 +62,6 @@ void loop() {
 
   // Publish the collected data to MQTT
   mqtt.publish();
-  manager.pause(5000);
 
   // Set the RTC interrupt alarm to wake the device in 15 min
   hypnos.setInterruptDuration(TimeSpan(0, 0, 0, 10));

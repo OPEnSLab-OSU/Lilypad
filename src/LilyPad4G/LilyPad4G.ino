@@ -17,7 +17,7 @@
 #include <DallasTemperature.h>
 
 Manager manager("Lilypad4G", 1); //Establish the Loom manager first
-Loom_Hypnos hypnos(manager, HYPNOS_VERSION::V3_3, TIME_ZONE::PST, true); // Create a new Hypnos object
+Loom_Hypnos hypnos(manager, HYPNOS_VERSION::V3_2, TIME_ZONE::PST, true); // Create a new Hypnos object
 Loom_Analog analog(manager); // Analog for reading battery voltage
 
 // Create sensor classes
@@ -47,7 +47,8 @@ void loop() {
   manager.measure();       // Measure sensor values
   sensors.requestTemperatures();
   manager.package();       // Package data from measurments
-  manager.addData("Temperature", "Celcius", sensors.getTempCByIndex(0));
+  float tempC = sensors.getTempCByIndex(0);
+  manager.addData("Temperature", "Celcius", tempC);
   manager.display_data();  // Print the current JSON packet                      
   hypnos.logToSD();        // Log the data to the SD card              
   mqtt.publish();          // Publish the collected data to MQTT

@@ -1,2 +1,3 @@
 *.s#*
 *.b#*
+./src/LilyPad4G/arduino_secrets.h

@@ -1,20 +1,20 @@
 /**
  * LilyPad4G.ino
  * This project uses the VEML7700, DS18B20, and SHT31 sensor to log environment data and logs it to both the SD card and also MQTT/MongoDB
- * TODO: rename sensors, test LTE, MQTT, VEML7700
+ * TODO: test LTE, MQTT
  */
 
-// UNCOMMENT THE FOLLOWING LINE TO USE INTERNET
-#define USE_INTERNET 
-// UNCOMMENT THE FOLLOWING LINE TO USE RTC INTERRUPT
-#define USE_RTC_INT
-#define DEBUG_DELAY 5 // Sets delay time when rtc interrupt isnt used
+// UNCOMMENT THE FOLLOWING LINE TO NOT USE INTERNET
+//#define USE_INTERNET 
+// UNCOMMENT THE FOLLOWING LINE TO NOT USE RTC INTERRUPT
+//#define USE_RTC_INT
+#define DEBUG_DELAY 5 // Sets delay time in seconds when rtc interrupt isnt used
 
 #include "arduino_secrets.h"
 // Loom includes
 #include <Loom_Manager.h>
 #include <Hardware/Loom_Hypnos/Loom_Hypnos.h>
-// Sensor Inlcudes
+// Sensor Includes
 #include <Sensors/Loom_Analog/Loom_Analog.h>
 #include <Sensors/I2C/Loom_SHT31/Loom_SHT31.h>
 // Internet/DB Includes
@@ -25,6 +25,8 @@
 // OneWire Includes
 #include <OneWire.h>
 #include <DallasTemperature.h>
+
+#include "Adafruit_VEML7700.h"
 
 Manager manager("Lilypad4G", 1); //Establish the Loom manager first
 Loom_Hypnos hypnos(manager, HYPNOS_VERSION::V3_2, TIME_ZONE::PST, true); // Create a new Hypnos object
@@ -44,6 +46,8 @@ OneWire oneWire(ONE_WIRE_BUS);
 DallasTemperature sensors(&oneWire);
 DeviceAddress ds18b20Address;
 
+Adafruit_VEML7700 veml = Adafruit_VEML7700();
+
 // Called when the RTC interrupt is triggered 
 void isrTrigger(){
   hypnos.wakeup();
@@ -60,6 +64,11 @@ void setup() {
   Serial.printf("[DS18B20] Address: 0x%x...\n", ds18b20Address);
   sensors.setResolution(ds18b20Address, 12); // Set to the highest resolution
   Serial.printf("[DS18B20] Resolution: %d...\n", sensors.getResolution(ds18b20Address));
+  if (!veml.begin()) {
+    Serial.println("Sensor not found");
+    while (1);
+  }
+  Serial.println("Sensor found");
 }
 
 void loop() {
@@ -68,6 +77,9 @@ void loop() {
   manager.measure();       // Measure sensor values
   manager.package();       // Package data from measurments
   manager.addData("DS18B20", "Temperature", tempC); // Manually add the data to the JSON 
+  manager.addData("VEML7700", "Raw_ALS", veml.readALS());
+  manager.addData("VEML7700", "Raw_White", veml.readWhite());
+  manager.addData("VEML7700", "LUX", veml.readLux(VEML_LUX_AUTO));
   manager.display_data();  // Print the current JSON packet                      
   hypnos.logToSD();        // Log the data to the SD card
   #ifdef USE_INTERNET              

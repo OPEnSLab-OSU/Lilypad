@@ -5,10 +5,11 @@
  */
 
 // UNCOMMENT THE FOLLOWING LINE TO NOT USE INTERNET
-//#define USE_INTERNET 
+#define USE_INTERNET 
 // UNCOMMENT THE FOLLOWING LINE TO NOT USE RTC INTERRUPT
-//#define USE_RTC_INT
-#define DEBUG_DELAY 5 // Sets delay time in seconds when rtc interrupt isnt used
+#define USE_RTC_INT
+#define INT_MIN 15    // Sets sleep time in minutes when RTC is used
+#define DEBUG_DELAY 10 // Sets delay time in seconds when rtc interrupt isnt used
 
 #include "arduino_secrets.h"
 
@@ -29,8 +30,8 @@
 // Adafruit VEML7700 breakout include
 #include "Adafruit_VEML7700.h"
 
-Manager manager("Lilypad4G", 1); //Establish the Loom manager first
-Loom_Hypnos hypnos(manager, HYPNOS_VERSION::V3_2, TIME_ZONE::PST, true); // Create a new Hypnos object
+Manager manager("15MIN_INTERVAL", 1); //Establish the Loom manager first
+Loom_Hypnos hypnos(manager, HYPNOS_VERSION::V3_3, TIME_ZONE::PST, true); // Create a new Hypnos object
 Loom_Analog analog(manager); // Add battery voltage measurement
 
 // Create sensor classes
@@ -66,6 +67,7 @@ void setup() {
   Serial.printf("[DS18B20] Address: 0x%x...\n", ds18b20Address);
   sensors.setResolution(ds18b20Address, 12); // Set to the highest resolution
   Serial.printf("[DS18B20] Resolution: %d...\n", sensors.getResolution(ds18b20Address));
+  Wire.begin();
   if (!veml.begin()) { // Startup veml sensor communication and set defaults
     Serial.println("[VEML7700] Sensor not found...");
   }
@@ -73,21 +75,26 @@ void setup() {
 }
 
 void loop() {
-  sensors.requestTemperatures(); // Send the command to get temperatures
+  sensors.requestTemperatures();                  // Send the command to get temperatures
   float tempC = sensors.getTempC(ds18b20Address); // Extract the temperature in C
-  manager.measure();       // Measure sensor values
-  manager.package();       // Package data from measurments
-  manager.addData("DS18B20", "Temperature", tempC); // Manually add the data to the JSON 
-  manager.addData("VEML7700", "Raw_ALS", veml.readALS()); // Manually add raw ALS value
-  manager.addData("VEML7700", "Raw_White", veml.readWhite()); //Manually add raw White value
-  manager.addData("VEML7700", "LUX", veml.readLux(VEML_LUX_AUTO)); // Manually add auto LUX value
-  manager.display_data();  // Print the current JSON packet                      
-  hypnos.logToSD();        // Log the data to the SD card
+  veml.begin();
+  float autoLux = veml.readLux(VEML_LUX_AUTO);
+  uint16_t rawALS = veml.readALS();
+  uint16_t rawWhite = veml.readWhite();
+  manager.measure();                                               // Measure sensor values
+  manager.package();                                               // Package data from measurments
+  manager.addData("DS18B20", "Temperature", tempC);              // Manually add the data to the JSON 
+  manager.addData("VEML7700", "Raw_ALS", rawALS);          // Manually add raw ALS value
+  manager.addData("VEML7700", "Raw_White", rawWhite);      //Manually add raw White value
+  manager.addData("VEML7700", "LUX", autoLux);                 // Manually add auto LUX value
+  manager.display_data();                                          // Print the current JSON packet                      
+  hypnos.logToSD();     
+  veml.end();                                           // Log the data to the SD card
   #ifdef USE_INTERNET              
-  mqtt.publish();          // Publish the collected data to MQTT
+  mqtt.publish();                                    // Publish the collected data to MQTT
   #endif
   #ifdef USE_RTC_INT
-  hypnos.setInterruptDuration(TimeSpan(0, 0, 1, 0)); // Interrupt every 1 minute
+  hypnos.setInterruptDuration(TimeSpan(0, 0, INT_MIN, 0)); // Interrupt
   hypnos.reattachRTCInterrupt();
   hypnos.sleep();
   #else

@@ -2,6 +2,7 @@
  * LilyPad4G.ino
  * This project uses the VEML7700, DS18B20, and SHT31 sensor to log environment data and logs it to both the SD card and also MQTT/MongoDB
  * TODO: long term test
+ * Required Packages: Altered VEML7700, OneWire, DallasTemperature
  */
 
 // UNCOMMENT THE FOLLOWING LINE TO NOT USE INTERNET

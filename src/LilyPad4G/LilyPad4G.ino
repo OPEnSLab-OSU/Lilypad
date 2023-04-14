@@ -10,7 +10,9 @@
 // UNCOMMENT THE FOLLOWING LINE TO NOT USE RTC INTERRUPT
 #define USE_RTC_INT
 #define INT_MIN 15    // Sets sleep time in minutes when RTC is used
-#define DEBUG_DELAY 10 // Sets delay time in seconds when rtc interrupt isnt used
+#define DEBUG_DELAY 2 // Sets delay time in seconds when rtc interrupt isnt used
+
+#define COLLECTION_NAME "15MIN_INTERVAL"
 
 #include "arduino_secrets.h"
 
@@ -31,7 +33,7 @@
 // Adafruit VEML7700 breakout include
 #include "Adafruit_VEML7700.h"
 
-Manager manager("15MIN_INTERVAL", 1); //Establish the Loom manager first
+Manager manager(COLLECTION_NAME, 1); //Establish the Loom manager first
 Loom_Hypnos hypnos(manager, HYPNOS_VERSION::V3_3, TIME_ZONE::PST, true); // Create a new Hypnos object
 Loom_Analog analog(manager); // Add battery voltage measurement
 
@@ -71,8 +73,9 @@ void setup() {
   Wire.begin();
   if (!veml.begin()) { // Startup veml sensor communication and set defaults
     Serial.println("[VEML7700] Sensor not found...");
+  } else {
+    Serial.println("[VEML7700] Sensor found...");
   }
-  Serial.println("[VEML7700] Sensor found...");
 }
 
 void loop() {

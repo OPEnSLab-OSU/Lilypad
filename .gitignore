@@ -1,3 +1,4 @@
 *.s#*
 *.b#*
 src/.DS_Store
+src/LilyPad4G/arduino_secrets.h

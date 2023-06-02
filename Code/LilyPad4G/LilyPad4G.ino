@@ -9,16 +9,17 @@
 #define USE_INTERNET 
 // UNCOMMENT THE FOLLOWING LINE TO NOT USE RTC INTERRUPT
 #define USE_RTC_INT
-#define INT_MIN 15    // Sets sleep time in minutes when RTC is used
+#define INT_MIN 2    // Sets sleep time in minutes when RTC is used
 #define DEBUG_DELAY 2 // Sets delay time in seconds when rtc interrupt isnt used
 
-#define COLLECTION_NAME "15MIN_INTERVAL"
+#define COLLECTION_NAME "TEMP"
 
 #include "arduino_secrets.h"
 
 // Loom includes
 #include <Loom_Manager.h>
 #include <Hardware/Loom_Hypnos/Loom_Hypnos.h>
+#include <Logger.h>
 // Sensor Includes
 #include <Sensors/Loom_Analog/Loom_Analog.h>
 #include <Sensors/I2C/Loom_SHT31/Loom_SHT31.h>
@@ -42,7 +43,7 @@ Loom_SHT31 sht(manager);
 // Create lte and mqtt classes
 #ifdef USE_INTERNET
 Loom_LTE lte(manager, NETWORK_APN, NETWORK_USER, NETWORK_PASS);
-Loom_MQTT mqtt(manager, lte.getClient(), SECRET_BROKER, SECRET_PORT, DATABASE, BROKER_USER, BROKER_PASS);
+Loom_MQTT mqtt(manager, lte.getClient(), SECRET_BROKER, SECRET_PORT, DATABASE, BROKER_USER, BROKER_PASS, "LilyPad");
 #endif
 
 // Create oneWire/DallasTemperature sensor classes
@@ -60,6 +61,8 @@ void isrTrigger(){
 }
 
 void setup() {
+  ENABLE_SD_LOGGING;
+  ENABLE_FUNC_SUMMARIES;
   manager.beginSerial();                // Wait 20 seconds for the serial console to open
   hypnos.enable();                      // Enable the hypnos rails
   manager.initialize();                 // Initialize all in-use modules

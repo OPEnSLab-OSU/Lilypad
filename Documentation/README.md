@@ -9,7 +9,8 @@ Fresh water is becoming one of the most valuable resources in the world. The Lil
 
 ## Specifications Table
 
-| Hardware  | Lilypad |
+| Hardware | Lilypad |
+| --- | --- |
 | Subject Area | Environmental and agricultural Sciences |
 | Hardware Type | Field Measurements and sensors |
 | Closest Commercial Analog | [Floating Weather Station](https://www.fiedler.company/en/products/meteorological-stations-and-measuring-sensors/weather-stations/plovouc-meteorologick-stanic) |
@@ -33,7 +34,7 @@ The Lilypad is a floating platform for long term water sensing. Using three thic
 4. ## Bill of Materials Summary
 
 | Component Type | Item Description | Quantity Per Unit | Dist. Website | Notes | Material Cost | Per Unit Cost |
-| :--- | :--- | ---: | :--- | ---: | ---: |
+| :--- | :--- | ---: | :--- | :--- | ---: | ---: |
 | Electrical | Feather M0 | 1 | | Adafruit #: 2772 | $19.95 | $19.95 |
 | Electrical | Hypnos v3.2 | 1 | OPEnS | In-house part | $35.00 | $35.00 |
 | Electrical | Coin Cell Battery | 1 | | | | |

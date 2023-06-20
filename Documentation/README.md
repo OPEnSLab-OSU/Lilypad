@@ -32,6 +32,58 @@ The Lilypad is a floating platform for long term water sensing. Using three thic
 
 4. ## Bill of Materials Summary
 
+| Component Type | Item Description | Quantity Per Unit | Dist. Website | Notes | Material Cost | Per Unit Cost |
+| :--- | :--- | ---: | :--- | ---: | ---: |
+| Electrical | Feather M0 | 1 | | Adafruit #: 2772 | $19.95 | $19.95 |
+| Electrical | Hypnos v3.2 | 1 | OPEnS | In-house part | $35.00 | $35.00 |
+| Electrical | Coin Cell Battery | 1 | | | | |
+| Electrical | microSD Card | 1 | | | | |
+| Electrical | SparkFun SARA-R4 | 1 | | | $90.95 | $90.95 |
+| Electrical | SHT31 | 1 |  | Humidity and Air Temp. | $19.90 | $19.90 |
+| Electrical | DS18B20 | 1 | | Water Temp. Adafruit #: 381 | $9.95 | $9.95 |
+| Electrical | Right Angle VEML7700 Lux Sensor | 1 |  | Light Intensity, Adafruit #: 5378 | $4.95 | $4.95 |
+| Electrical | 4 Wire Cable | 1 | | | $18.49 | $18.49 |
+| Electrical | 6W 6V Solar Panel | 1 | | | $59 | $59 |
+| Electrical | 10050mAh Battery | 1 | | Adafruit #: 5035 | $29.98 | $29.98 |
+| Electrical  | Thermister | 1 | | Monitor Battery Temp. Adafruit #: 372 | $4.00 | $4.00 |
+| | | | | | | |
+| PCB | LilyPadv2 Motherboard | 1 | | | | $21.82 |
+| | | | | | | |
+| | | | | | | |
+| | | | | | | |
+| | | | | | | |
+| | | | | | | |
+| | | | | | | |
+| | | | | | | | 
+| | | | | | | |
+| | | | | | | |
+| | | | | | | |
+| | | | | | | |
+| | | | | | | |
+| | | | | | | |
+| | | | | | | |
+| | | | | | | | 
+| | | | | | | |
+| | | | | | | |
+| | | | | | | |
+| | | | | | | |
+| | | | | | | |
+| | | | | | | |
+| | | | | | | |
+| | | | | | | |
+| | | | | | | |
+| | | | | | | |
+| | | | | | | |
+| | | | | | | |
+| | | | | | | |
+| | | | | | | |
+| | | | | | | |
+| | | | | | | |
+| | | | | | | |
+| | | | | | | |
+| | | | | | | |
+| | | | | | | |
+
 5. ## Build Instructions
 
 <details open>
@@ -104,10 +156,17 @@ The Lilypad is a floating platform for long term water sensing. Using three thic
 
 </details>
 
+<summary> Electronics Case Assembly </summary>
+
+1. Start by marking and punching the locations of the holes for the Grommets.
+
+2. Drill out each hole to 1/2" size. We use a 1/2" stepped drill bit as we it the best way to get consistent clean holes. 
+<summary> Structure Assembly </summary>
+
 6. ## Operation Instructions
 
 <details open>
-<summary><h1>⬇ Software Install</h1> - Click to view software installation steps</summary>
+<summary><h1>⬇ Arduino Software Install</h1> - Click to view software installation steps</summary>
 
 1. Follow LoomV4 installation steps from the link provided [here](https://github.com/OPEnSLab-OSU/Loom-V4)
 2. Clone the repo to arduino folder with:
@@ -117,7 +176,7 @@ The Lilypad is a floating platform for long term water sensing. Using three thic
 </details>
 <hr>
 <details open>
-<summary><h1>📶 LTE Shield Initialization</h1> - Click to view LTE steps</summary>
+<summary><h1>📶 LTE Shield Initialization</h1> - Click to view LTE steps - </summary>
 
 1. In the Arduino IDE go to ```File > Examples > Loom > Lab Examples > WC_FastRegister```
 2. Change necessary lines and upload code to init LTE board

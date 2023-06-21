@@ -49,9 +49,9 @@ The Lilypad is a floating platform for long term water sensing. Using three thic
 | Electrical  | Thermister | 1 | | Monitor Battery Temp. Adafruit #: 372 | $4.00 | $4.00 |
 | | | | | | | |
 | PCB | LilyPadv2 Motherboard | 1 | | | | $21.82 |
-| | | | | | | |
-| | | | | | | |
-| | | | | | | |
+| PCB | D1 (Green LED) | 1 |  | indicator, 160-1446-1-ND | $0.26 | $0.26 |
+| PCB | ## (Red LED) | 1 | | indicator, 160-1447-1-ND | $0.26 | $0.26 |
+| PCB | D2 (SK34A) | 1 | | SK34AFL-TP | | |
 | | | | | | | |
 | | | | | | | |
 | | | | | | | |
@@ -88,7 +88,7 @@ The Lilypad is a floating platform for long term water sensing. Using three thic
 5. ## Build Instructions
 
 <details open>
-<summary><h1>🛠️ Initial Assembly</h1> - Click to view initial assembly steps</summary>
+<summary><h1>⚡Electronics Assembly</h1> - Click to view electronics assembly steps</summary>
 
 ### Hypnos:
 1. Assemble short male headers to underside and short female headers on the top side
@@ -133,11 +133,7 @@ The Lilypad is a floating platform for long term water sensing. Using three thic
 1. Cut wire to appropriate length
 2. Strip and tin wire ends
 
-</details>
-<hr>
-<details open>
-<summary><h1>🪷 Lilypad Assembly</h1> - Click to view Lilypad assembly steps</summary>
-
+### Combining Hardware
 1. Directly solder the Sparkfun LTE board to the underside
 
     <img src="https://user-images.githubusercontent.com/71784728/231925212-a99ee019-a4f6-4e79-8571-29054c3b7532.jpg" height=300 />
@@ -156,13 +152,19 @@ The Lilypad is a floating platform for long term water sensing. Using three thic
     <img src="https://user-images.githubusercontent.com/71784728/231925298-6cd96b4a-4359-4115-b91c-80018743d27a.jpg" height=300 />
 
 </details>
-
-<summary> Electronics Case Assembly </summary>
+<hr>
+<details open>
+<summary> <h1>🪛 Electronics Case Assembly</h1> - Click to view electronics case assembly steps </summary>
 
 1. Start by marking and punching the locations of the holes for the Grommets.
 
 2. Drill out each hole to 1/2" size. We use a 1/2" stepped drill bit as we it the best way to get consistent clean holes. 
-<summary> Structure Assembly </summary>
+</details>
+<hr>
+<details open>
+<summary> <h1>🛠️ Structure Assembly</h1> - Click to view structure assembly steps </summary>
+
+</details>
 
 6. ## Operation Instructions
 

@@ -172,9 +172,11 @@ The Lilypad is a floating platform for long term water sensing. Using three thic
 <summary><h1>⬇ Arduino Software Install</h1> - Click to view software installation steps</summary>
 
 1. Follow LoomV4 installation steps from the link provided [here](https://github.com/OPEnSLab-OSU/Loom-V4)
-2. Clone the repo to arduino folder with:
+2. Use Loom4 commit 63b8fd5 or later.
+3. Clone the repo to arduino folder with:
 ```git clone https://github.com/OPEnSLab-OSU/Lilypad```
-3. Move the Adafruit_VEML7700_library_Altered folder to your computers Arduino libraries folder
+4. Move the Adafruit_VEML7700_library_Altered folder to your computers Arduino libraries folder
+5. Install the [OneWire]() (tested with verson 2.7.3) and [DallasTemperature](https://www.arduino.cc/reference/en/libraries/dallastemperature) (tested with version 3.9.0) libraries inside the Arduino IDE [Library Manager](https://www.arduino.cc/en/Guide/Libraries).
 
 </details>
 <hr>

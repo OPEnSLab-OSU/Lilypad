@@ -113,13 +113,17 @@ The Lilypad is a floating platform for long term water sensing. Using three thic
 ### Lilypad PCB:
 1. Assemble surface mount components and reflow
 
-    <img src="https://user-images.githubusercontent.com/71784728/231924802-dc374c2c-8af7-4d64-be26-2774339266b0.jpg" height=300 />
+    <img src="https://github.com/OPEnSLab-OSU/Lilypad/blob/main/Documentation/images/LilypadPCB_design_labeled.png" height=300 />
 
-2. Solder short female headers to the PCB
-3. Solder screw terminals in corresponding spots
-4. Add power switch
+   <img src="https://user-images.githubusercontent.com/71784728/231924802-dc374c2c-8af7-4d64-be26-2774339266b0.jpg" height=300 />
+
+3. Solder short 12 and 16 pin female headers to the top side of the PCB for the Feather MO.
+4. Solder screw terminals in corresponding spots
+5. Solder on power switch, then bend headers at 90 degree angle so switch is flat on PCB.
 
     <img src="https://user-images.githubusercontent.com/71784728/231924833-23fb0f01-a90e-4a0f-b334-e59fd956ede5.jpg" height=300 />
+
+6. Soler short male headers to top and bottom rows of through holes on the bottom side of the PCB for the LTE board.
 
 ### Battery:
 1. Make a tiny slice in battery casing (make sure to not cut into a cell)
@@ -134,7 +138,7 @@ The Lilypad is a floating platform for long term water sensing. Using three thic
 2. Strip and tin wire ends
 
 ### Combining Hardware
-1. Directly solder the Sparkfun LTE board to the underside
+1. Directly solder the Sparkfun LTE board to the underside of the Lilypad PCB.
 
     <img src="https://user-images.githubusercontent.com/71784728/231925212-a99ee019-a4f6-4e79-8571-29054c3b7532.jpg" height=300 />
 

@@ -171,11 +171,13 @@ The Lilypad is a floating platform for long term water sensing. Using three thic
 <details open>
 <summary><h1>⬇ Arduino Software Install</h1> - Click to view software installation steps</summary>
 
-1. Follow LoomV4 installation steps from the link provided [here](https://github.com/OPEnSLab-OSU/Loom-V4)
-2. Clone the repo to arduino folder with:
+1. Follow LoomV4 [installation steps](https://github.com/OPEnSLab-OSU/Loom-V4#install).
+2. Use Loom4 version committed June 13, 2023 ([63b8fd5](63b8fd5571925c7c8485da7fb281c45754fe824b)) or later by downloading repository and replacing Loom library folder contents at (for Windows) C:\Users\_____\AppData\Local\Arduino15\packages\loom4\hardware\samd\4.3.0\libraries\Loom with repository folder.
+3. Clone the LilyPad repo to arduino folder with:
 ```git clone https://github.com/OPEnSLab-OSU/Lilypad```
-3. Move the Adafruit_VEML7700_library_Altered folder to your computers Arduino libraries folder
-
+4. Move the Adafruit_VEML7700_library_Altered folder to your computer's Arduino libraries folder
+5. Install the [OneWire](https://www.arduino.cc/reference/en/libraries/onewire/) (tested with verson 2.7.3) and [DallasTemperature](https://www.arduino.cc/reference/en/libraries/dallastemperature) (tested with version 3.9.0) libraries inside the Arduino IDE [Library Manager](https://www.arduino.cc/en/Guide/Libraries).
+6. Modify the ArduinoMqttClient library according to [issue 53](https://github.com/arduino-libraries/ArduinoMqttClient/issues/53): replace != condition with < in [line 213](https://github.com/arduino-libraries/ArduinoMqttClient/blob/03d2faff0520f34a0734e2e7a5588f68bccd1fc5/src/MqttClient.cpp#L213) of ArduinoMqttClient/src/MqttClient.cpp.
 </details>
 <hr>
 <details open>
@@ -205,7 +207,8 @@ The Lilypad is a floating platform for long term water sensing. Using three thic
 #define BROKER_USER "Username"
 #define BROKER_PASS "Password"
 ```
-4. Verify and upload code
+4. Update the COLLECTION_NAME on line 13 to match device e.g. LP1.
+5. Verify and upload code
 
 </details>
 

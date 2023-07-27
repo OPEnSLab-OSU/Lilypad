@@ -14,10 +14,6 @@ Fresh water is becoming one of the most valuable resources in the world. The Lil
 | Subject Area | Environmental and agricultural Sciences |
 | Hardware Type | Field Measurements and sensors |
 | Closest Commercial Analog | [Floating Weather Station](https://www.fiedler.company/en/products/meteorological-stations-and-measuring-sensors/weather-stations/plovouc-meteorologick-stanic) |
-| Open Source License | |
-| Cost of Hardware | |
-| Source File Repository | |
-| OSHWA certification UID | |
 
 1. ## Hardware in Context
 
@@ -35,55 +31,50 @@ The Lilypad is a floating platform for long term water sensing. Using three thic
 
 | Component Type | Item Description | Quantity Per Unit | Dist. Website | Notes | Material Cost | Per Unit Cost |
 | :--- | :--- | ---: | :--- | :--- | ---: | ---: |
-| Electrical | Feather M0 | 1 | | Adafruit #: 2772 | $19.95 | $19.95 |
-| Electrical | Hypnos v3.2 | 1 | OPEnS | In-house part | $35.00 | $35.00 |
-| Electrical | Coin Cell Battery | 1 | | | | |
-| Electrical | microSD Card | 1 | | | | |
-| Electrical | SparkFun SARA-R4 | 1 | | | $90.95 | $90.95 |
-| Electrical | SHT31 | 1 |  | Humidity and Air Temp. | $19.90 | $19.90 |
-| Electrical | DS18B20 | 1 | | Water Temp. Adafruit #: 381 | $9.95 | $9.95 |
-| Electrical | Right Angle VEML7700 Lux Sensor | 1 |  | Light Intensity, Adafruit #: 5378 | $4.95 | $4.95 |
-| Electrical | 4 Wire Cable | 1 | | | $18.49 | $18.49 |
-| Electrical | 6W 6V Solar Panel | 1 | | | $59 | $59 |
-| Electrical | 10050mAh Battery | 1 | | Adafruit #: 5035 | $29.98 | $29.98 |
-| Electrical  | Thermister | 1 | | Monitor Battery Temp. Adafruit #: 372 | $4.00 | $4.00 |
-| | | | | | | |
-| PCB | LilyPadv2 Motherboard | 1 | | | | $21.82 |
-| PCB | D1 (Green LED) | 1 |  | indicator, 160-1446-1-ND | $0.26 | $0.26 |
-| PCB | ## (Red LED) | 1 | | indicator, 160-1447-1-ND | $0.26 | $0.26 |
-| PCB | D2 (SK34A) | 1 | | SK34AFL-TP | | |
-| | | | | | | |
-| | | | | | | |
-| | | | | | | |
-| | | | | | | | 
-| | | | | | | |
-| | | | | | | |
-| | | | | | | |
-| | | | | | | |
-| | | | | | | |
-| | | | | | | |
-| | | | | | | |
-| | | | | | | | 
-| | | | | | | |
-| | | | | | | |
-| | | | | | | |
-| | | | | | | |
-| | | | | | | |
-| | | | | | | |
-| | | | | | | |
-| | | | | | | |
-| | | | | | | |
-| | | | | | | |
-| | | | | | | |
-| | | | | | | |
-| | | | | | | |
-| | | | | | | |
-| | | | | | | |
-| | | | | | | |
-| | | | | | | |
-| | | | | | | |
-| | | | | | | |
-| | | | | | | |
+|	Electrical	|	Feather M0	|	1	|	[Adafruit](https://www.adafruit.com/product/2772)	|	2772	|	19.95	|	19.95	|
+|	Electrical	|	Hypnos v3.2	|	1	|	[OPEnS GitHub](https://github.com/OPEnSLab-OSU/OPEnS-Hypnos/tree/master/Hypnos%20V3.2)	|	In-house Part	|	35	|	35	|
+|	Electrical	|	Coin cell battery	|		|	[Mouser](https://www.mouser.com/ProductDetail/Panasonic-Battery/CR1220?qs=1eQvB6Dk1vgkC%252Bd1qU6JFA%3D%3D)	|		|	1.13	|	1.13	|
+|	Electrical	|	microSD card	|		|	[Amazon](https://www.amazon.com/SanDisk-microSDHC-Standard-Packaging-SDSQUNC-032G-GN6MA/dp/B010Q57T02/ref=sr_1_5?crid=7X1LCHLGXSMK&keywords=SanDisk+32GB+Ultra+microSDHC&qid=1690476358&s=electronics&sprefix=sandisk+32gb+ultra+microsdhc%2Celectronics%2C192&sr=1-5)	|		|	8.49	|	8.49	|
+|	Electrical	|	SparkFun SARA-R4	|	1	|	[SparkFun](https://www.sparkfun.com/products/14997)	|		|	90.95	|	90.95	|
+|	Electrical	|	SHT31	|	1	|	[DF Robot](https://www.dfrobot.com/product-2160.html)	|		|	19.9	|	19.9	|
+|	Electrical	|	DS18B20	|	1	|	[Adafruit](https://www.adafruit.com/product/381)	|	381	|	9.95	|	9.95	|
+|	Electrical	|	Right Angle VEML7700 Lux Sensor	|	1	|	[Adafruit](https://www.adafruit.com/product/5378)	|	5378	|	4.95	|	4.95	|
+|	Electrical	|	4 wire cable	|	1	|	[Amazon](https://www.amazon.com/Conductor-Electrical-Stranded-Extension-Automotive/dp/B0BVYXPMM4/ref=sr_1_6?crid=RZDPPX77JVVJ&keywords=4%2BConductor%2BElectrical%2BWire%2B22awg&qid=1682638333&s=industrial&sprefix=4%2Bconductor%2Belectrical%2Bwire%2B22awg%2Cindustrial%2C143&sr=1-6&th=1)	|		|	18.49	|	18.49	|
+|	Electrical	|	6W 6V Solar Panel	|	1	|	[VoltaicSystems](https://voltaicsystems.com/6-watt-panel/)	|	1525	|	59	|	59	|
+|	Electrical	|	10050mAh Battery	|	1	|	[Adafruit](https://www.adafruit.com/product/5035)	|	5035	|	29.98	|	29.98	|
+|	Electrical	|	Thermister	|	1	|	[Adafruit](https://www.adafruit.com/product/372)	|	372	|	4	|	4	|
+|	Electrical	|	Heat shrink	|	1	|	[Amazon](https://www.amazon.com/gp/product/B084GDLSCK/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1)	|		|	13.99	|	13.99	|
+|		|		|		|		|		|		|		|
+|	PCB	|	LilyPadv2 Motherboard	|	1	|	[OPEnS Github](https://github.com/OPEnSLab-OSU/Lilypad/blob/main/PCB/LP_MotherBoard_v1/lilypad_V2.brd)	|		|		|	21.82	|
+|	PCB	|	Green LED	|	1	|	[Mouser](https://www.mouser.com/ProductDetail/Lite-On/LTST-C191KGKT?qs=xSPZu9B1aMCRQ5ACasEYAg%3D%3D)	|	indicator, 160-1446-1-ND	|	0.26	|	0.26	|
+|	PCB	|	Red LED	|	1	|	[Mouser](https://www.mouser.com/ProductDetail/Lite-On/LTST-C191KRKT?qs=BAIUz4Y8PJBLfOhzue0q%252BA%3D%3D)	|	indicator, 160-1447-1-ND	|	0.26	|	0.26	|
+|	PCB	|	D2 (SK34A)	|	1	|	[Mouser](https://www.mouser.com/ProductDetail/Micro-Commercial-Components-MCC/SK34AFL-TP?qs=%2F9jDaHz9Z2hx3laGbsEE%252BA%3D%3D)	|	SK34AFL-TP 	|	0.48	|	0.48	|
+|	PCB	|	C5, C6: CAP CER 10UF 16V X5R 0805	|	2	|	[Mouser](https://www.mouser.com/ProductDetail/Taiyo-Yuden/TMK212BBJ106KG8T?qs=sGAEpiMZZMsh%252B1woXyUXj30ZYomYlxpXTwdB%2FyRwYV8%3D)	|	1276-1096-1-ND	|	0.32	|	0.64	|
+|	PCB	|	X4: BQ24074 IC BATT CHG LI-ION 1CELL 16QFN	|	1	|	[Mouser](https://www.mouser.com/ProductDetail/Texas-Instruments/BQ24074RGTT?qs=ZV%2Fxhq4oszp0gb4MsbpFYw%3D%3D)	|	lipo charging	|	4.38	|	4.38	|
+|	PCB	|	R2, R7, R8, R11: RES 10K OHM 5% 1/8W 0805	|	4	|	[Mouser](https://www.mouser.com/ProductDetail/TE-Connectivity-Holsworthy/1623097-1?qs=sGAEpiMZZMtlubZbdhIBIGSmJ%2FJbdf4CFnz30yzDuYI%3D)	|	311-10KARCT-ND	|	0.21	|	0.84	|
+|	PCB	|	R1, R9: RES 1K OHM 1% 1/4W 0805	|	2	|	[Mouser](https://www.mouser.com/ProductDetail/TE-Connectivity-Holsworthy/1-2176092-8?qs=sGAEpiMZZMtlubZbdhIBIP78WyDTHQZBYHcwkrM3rIc%3D)	|	1-2176092-8; RNCP0805FTD1K00CT-ND	|	0.63	|	1.26	|
+|	PCB	|	R12: RES 4.7K OHM 1% 1/8W 0805	|	1	|	[Mouser](https://www.mouser.com/ProductDetail/Bourns/CR0805-FX-4701ELF?qs=sGAEpiMZZMtlubZbdhIBIDEmHCAUH0R0BIFSm%252BPNBkg%3D)	|	DS18B20 Pullup, 13-RC0805FR-134K7LCT-ND	|	0.1	|	0.1	|
+|	PCB	|	JST 2-Pin	|	1	|	[Adafruit](https://www.adafruit.com/product/1769)	|	battery connector	|	0.75	|	0.75	|
+|	PCB	|	Switch	|	1	|	[Adafruit](https://www.adafruit.com/product/805)	|		|	0.95	|	0.95	|
+|	PCB	|	Headers Swiss Pack (Male)	|	1	|	[Adafruit](https://www.adafruit.com/product/3647)	|		|	5.95	|	5.95	|
+|	PCB	|	Headers Swiss Pack (Female)	|	1	|	[Adafruit](https://www.adafruit.com/product/3646)	|		|	5.95	|	5.95	|
+|	PCB	|	2 pin screw terminal	|	2	|	[Mouser](https://www.mouser.com/ProductDetail/651-1725656)	|	1725656	|	1.94	|	3.88	|
+|	PCB	|	3 pin screw terminal	|	1	|	[Mouser](https://www.mouser.com/ProductDetail/651-1725669)	|	1725669	|	2.89	|	2.89	|
+|	PCB	|	4 pin screw terminal	|	2	|	[Mouser](https://www.mouser.com/ProductDetail/651-1725672)	|	1725672	|	3.85	|	7.7	|
+|		|		|		|		|		|		|		|
+|	Mechanical	|	Pelican 1030 Micro	|	1	|	[Pelican](https://www.pelican.com/us/en/product/cases/micro/1030)	|		|	22.5	|	22.5	|
+|	Mechanical	|	EPDM Foam Cord	|	1	|	[McMasterCarr](https://www.mcmaster.com/4339T6/)	|	ID(1/4") OD(3/4")	|	17.1	|	17.1	|
+|	Mechanical	|	Acrylic - 1/4" food safe	|	1	|	[McMaster](https://www.mcmaster.com/8560K593/)	|	8560K593, 8 mm	|	30.37	|	30.37	|
+|	Mechanical	|	Acrylic - 1/8"	|	1	|	[McMaster](https://www.mcmaster.com/8505K741-8505K117/)	|	8505K741-8505K117, 3 mm	|	7.71	|	7.71	|
+|	Mechanical	|	M2.5 x 8 mm bolts	|	2	|	[McMaster](https://www.mcmaster.com/92290A058/)	|	92290A058	|	3.76	|	0.3008	|
+|	Mechanical	|	M2.5 nuts	|	2	|	[McMaster](https://www.mcmaster.com/94150A310/)	|	94150A310	|	5.74	|	0.2296	|
+|	Mechanical	|	M4 x 10 bolts	|	4	|	[McMaster](https://www.mcmaster.com/92290A144/)	|	92290A144	|	16.34	|	1.3072	|
+|	Mechanical	|	M4 nuts	|	4	|	[McMaster](https://www.mcmaster.com/94150A335/)	|	94150A335	|	4.68	|	0.3744	|
+|	Mechanical	|	PG7 cable glands	|	4	|	[Mouser](https://www.mouser.com/ProductDetail/546-1427NCGPG7B)	|	1427NCGPG7B	|	1.52	|	6.08	|
+|	Mechanical	|	Clear RTV Silicone Adhesive Sealant	|	1	|	[Amazon](https://www.amazon.com/gp/product/B0002UEPVI/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1)	|		|	5.98	|	5.98	|
+|	Mechanical	|	Silicone grease	|	1	|	[Grainger](https://www.grainger.com/product/SUPER-LUBE-Multipurpose-Grease-White-45NA53)	|	Item 45NA53	|	0.8	|	0.8	|
+|	Mechanical	|	Stepped drill bit for PG7	|	1	|	[McMaster](https://www.mcmaster.com/8841A21/)	|	8841A21	|	21.85	|	-	|
+|	Mechanical	|	HDPE bottles	|	2	|	[VWR](https://us.vwr.com/store/product/4589610/vwr-laboratory-bottles-high-density-polyethylene)	|	ChemStores ABB500, VWR 414004-158	|	7.255	|	14.51	|
 
 5. ## Build Instructions
 

@@ -51,9 +51,11 @@ Loom_MQTT mqtt(manager, lte.getClient(), SECRET_BROKER, SECRET_PORT, DATABASE, B
 OneWire oneWire(ONE_WIRE_BUS);
 DallasTemperature sensors(&oneWire);
 DeviceAddress ds18b20Address;
+bool dsb18bInitialized = true;
 
 // Initialize Adafruit VEML7700 class
 Adafruit_VEML7700 veml = Adafruit_VEML7700();
+bool vemlInitialized = true;
 
 // Called when the RTC interrupt is triggered
 void isrTrigger() {
@@ -70,44 +72,64 @@ void setup() {
   sensors.begin();                       // locate onewire devices on the bus
   Serial.printf("[OneWire] Found %d devides...\n", sensors.getDeviceCount());
   if (sensors.getDeviceCount() == 0) {
-    while (1) { Serial.println("[DS18B20] Sensor not found..."); }
+    Serial.println("[DS18B20] Sensor not found...");
+    dsb18bInitialized = false;
+  }else{
+    if (!sensors.getAddress(ds18b20Address, 0)) Serial.println("[DS18B20] Unable to find address for Device 0");
+    Serial.printf("[DS18B20] Address: 0x%x...\n", ds18b20Address);
+    sensors.setResolution(ds18b20Address, 12);  // Set to the highest resolution
+    Serial.printf("[DS18B20] Resolution: %d...\n", sensors.getResolution(ds18b20Address));
   }
-  if (!sensors.getAddress(ds18b20Address, 0)) Serial.println("[DS18B20] Unable to find address for Device 0");
-  Serial.printf("[DS18B20] Address: 0x%x...\n", ds18b20Address);
-  sensors.setResolution(ds18b20Address, 12);  // Set to the highest resolution
-  Serial.printf("[DS18B20] Resolution: %d...\n", sensors.getResolution(ds18b20Address));
+
   Wire.begin();
   if (!veml.begin()) {  // Startup veml sensor communication and set defaults
-    while (1) { Serial.println("[VEML7700] Sensor not found..."); }
+    Serial.println("[VEML7700] Sensor not found...");
+    vemlInitialized = false;
   } else {
     Serial.println("[VEML7700] Sensor found...");
   }
 }
 
 void loop() {
-  sensors.requestTemperatures();                   // Send the command to get temperatures
-  float tempC = sensors.getTempC(ds18b20Address);  // Extract the temperature in C
-  veml.begin();
-  float autoLux = veml.readLux(VEML_LUX_AUTO);
-  uint16_t rawALS = veml.readALS();
-  uint16_t rawWhite = veml.readWhite();
+  if(dsb18bInitialized){
+    sensors.requestTemperatures();                   // Send the command to get temperatures
+    float tempC = sensors.getTempC(ds18b20Address);  // Extract the temperature in C
+  }
+  else{
+    Serial.println("[DS18B20] Sensor Not Initialized");
+  }
+  if(vemlInitialized){
+    veml.begin();
+    float autoLux = veml.readLux(VEML_LUX_AUTO);
+    uint16_t rawALS = veml.readALS();
+    uint16_t rawWhite = veml.readWhite();
+  }
+  else{
+    Serial.println("[VEML7700] Sensor Not Initialized");
+  }
   manager.measure();                                   // Measure sensor values
   manager.package();                                   // Package data from measurments
-  manager.addData("DS18B20", "Temperature", tempC);    // Manually add the data to the JSON
-  manager.addData("VEML7700", "Raw_ALS", rawALS);      // Manually add raw ALS value
-  manager.addData("VEML7700", "Raw_White", rawWhite);  //Manually add raw White value
-  manager.addData("VEML7700", "LUX", autoLux);         // Manually add auto LUX value
+
+  if(dsb18bInitialized)
+    manager.addData("DS18B20", "Temperature", tempC);    // Manually add the data to the JSON
+
+  if(vemlInitialized){
+    manager.addData("VEML7700", "Raw_ALS", rawALS);      // Manually add raw ALS value
+    manager.addData("VEML7700", "Raw_White", rawWhite);  //Manually add raw White value
+    manager.addData("VEML7700", "LUX", autoLux);         // Manually add auto LUX value
+  }
   manager.display_data();                              // Print the current JSON packet
   hypnos.logToSD();
-  veml.end();  // Log the data to the SD card
-#ifdef USE_INTERNET
+  if(vemlInitialized)
+    veml.end();  // Log the data to the SD card
+  #ifdef USE_INTERNET
   mqtt.publish();  // Publish the collected data to MQTT
-#endif
-#ifdef USE_RTC_INT
+  #endif
+  #ifdef USE_RTC_INT
   hypnos.setInterruptDuration(TimeSpan(0, 0, INT_MIN, 0));  // Interrupt
   hypnos.reattachRTCInterrupt();
   hypnos.sleep();
-#else
+  #else
   delay(DEBUG_DELAY * 1000);
 #endif
 }
